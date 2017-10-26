@@ -37,8 +37,4 @@ class Spaceship extends Floater
 		myDirectionY = 0;
 		myPointDirection = Math.random()*360;
 	}
-	public void rotateUp()
-	{
-
-	}
 }
