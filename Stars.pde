@@ -2,7 +2,7 @@ class Stars //note that this class does NOT extend Floater
 {
 	private int myColor; 
 	private double myX, myY;
-	Stars() 
+	public Stars() 
 	{
 		myX = (float)Math.random()*500;
 		myY = (float)Math.random()*500;
