@@ -1,4 +1,4 @@
-Stars[] bg = new Stars[100];
+Stars[] bg = new Stars[200];
 Spaceship spacie = new Spaceship();
 boolean moving = false;
 public void setup() 
