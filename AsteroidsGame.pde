@@ -1,5 +1,5 @@
 Stars[] bg = new Stars[200];
-Asteroid[] astBg = new Asteroid[10];
+ArrayList <Asteroid> astBg = new ArrayList <Asteroid> ();
 Spaceship spacie = new Spaceship();
 boolean moving = false;
 public void setup() 
@@ -9,9 +9,9 @@ public void setup()
 	{
 		bg[i] = new Stars(); 
 	}
-	for (int i = 0; i < astBg.length; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		astBg[i] = new Asteroid();
+		astBg.add(new Asteroid());
 	}
 }
 public void draw() 
@@ -21,10 +21,13 @@ public void draw()
 	{
 		bg[i].show();
 	}
-	for (int i = 0; i < astBg.length; i++)
+	for (int i = 0; i < astBg.size(); i++)
 	{
-		astBg[i].show();
-		astBg[i].move();
+		astBg.get(i).show();
+		if (dist(astBg.get(i).getX(), astBg.get(i).getY(), spacie.getX(), spacie.getY()) < 15)
+			astBg.remove(i);
+		else
+			astBg.get(i).move();
 	}
 	spacie.show();
 	if (moving == true)
