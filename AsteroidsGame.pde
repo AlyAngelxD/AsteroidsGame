@@ -2,6 +2,7 @@ Stars[] bg = new Stars[200];
 ArrayList <Asteroid> astBg = new ArrayList <Asteroid> ();
 Spaceship spacie = new Spaceship();
 boolean moving = false;
+Bullet bullie = new Bullet(spacie);
 public void setup() 
 {
 	size(500,500);
@@ -32,6 +33,7 @@ public void draw()
 	spacie.show();
 	if (moving == true)
 		spacie.move();
+	bullie.show();
 }
 public void keyPressed()
 {
