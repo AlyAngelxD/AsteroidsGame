@@ -2,7 +2,7 @@ Stars[] bg = new Stars[200];
 ArrayList <Asteroid> astBg = new ArrayList <Asteroid> ();
 Spaceship spacie = new Spaceship();
 boolean moving = false;
-Bullet bullie = new Bullet(spacie);
+ArrayList <Bullet> bulletList = new ArrayList <Bullet> ();
 public void setup() 
 {
 	size(500,500);
@@ -29,11 +29,25 @@ public void draw()
 			astBg.remove(i);
 		else
 			astBg.get(i).move();
+		for (int j = 0; j < bulletList.size(); j++)
+		{
+			if (dist(astBg.get(i).getX(), astBg.get(i).getY(), bulletList.get(j).getX(), bulletList.get(j).getY()) < 15)
+			{
+				astBg.remove(i);
+				bulletList.remove(j);
+				break;
+			}
+		}
+	}
+	for (int i = 0; i < bulletList.size(); i++)
+	{
+		bulletList.get(i).show();
+		bulletList.get(i).move();
 	}
 	spacie.show();
 	if (moving == true)
 		spacie.move();
-	bullie.show();
+
 }
 public void keyPressed()
 {
@@ -54,5 +68,9 @@ public void keyPressed()
 	{
 		moving = true;
 		spacie.accelerate(1);
+	}
+	if (keyCode == 32)
+	{
+		bulletList.add(new Bullet(spacie));
 	}
 }
